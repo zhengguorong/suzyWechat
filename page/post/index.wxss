@@ -1,0 +1,45 @@
+.index{
+    background-image: url(../../image/bg.png)
+}
+.add-post{
+    position:fixed;
+    bottom: 20rpx;
+    right:20rpx;
+    z-index: 9999;
+    background-color: #576b95;
+    width: 90rpx;
+    height: 90rpx;
+    border-radius: 90rpx;
+    line-height: 90rpx;
+    text-align: center;
+}
+.add-post text{
+    color:#fff;
+    font-size: 40rpx;
+}
+.item {
+    margin: 20rpx;
+    padding: 10rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    border:2rpx solid #d7d9db;
+}
+.item .post-img{
+    width:100%
+}
+.item .author,.create-date{
+    text-align: right;
+    margin-top: 20rpx;
+}
+.item .author{
+    margin-bottom: 20rpx;
+}
+.item .author,.create-date text{
+    font-size: 24rpx;
+    color:#ccc;
+}
+.item .content{
+    font-size: 28rpx;
+    padding:20rpx;
+    line-height: 40rpx;
+}
