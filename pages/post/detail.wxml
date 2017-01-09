@@ -1,0 +1,27 @@
+<view class="detail">
+<!--滚动区域-->
+    <scroll-view scroll-y="true">
+        <!--文章详情-->
+            <view class="post">
+                <image 
+                src="{{baseUrl}}{{post.article.pic}}" 
+                mode="widthFix"
+                class="post-img"/>
+                <!--<view class="author"><text>{{post.article.author}} 发布</text></view>-->
+                <!--<view class="create-date"><text>{{post.article.createTime}}</text></view>-->
+                <view class="content"><text>{{post.article.content}}</text></view>
+            </view>
+            <view class="comment-title"><text>评论 {{post.replies.length}}</text></view>
+            <view class="comment-list">
+                <view class="item" wx:for="{{post.replies}}" wx:for-index="idx" wx:for-item="reply" wx:key="_id">
+                    <image wx:if="{{reply.author=='zhi'}}" class="icon" src="/image/zhi.png" mode="aspectFit"/>
+                    <image wx:if="{{reply.author=='rong'}}" class="icon" src="/image/rong.png" mode="aspectFit"/>
+                    <view class="create-info">
+                        <text class="author">{{reply.author}}</text>
+                        <text class="display-time">{{reply.displayTime}}</text>
+                    </view>
+                    <view class="content"><text>{{reply.content}}</text></view>
+                </view>
+            </view>
+    </scroll-view>
+</view>

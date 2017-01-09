@@ -1,0 +1,25 @@
+<view class="index">
+  <!--滚动区域-->
+  <scroll-view scroll-y="true" bindscrolltolower="getNextPage">
+    <!--文章列表-->
+    <view class="post-list">
+      <view wx:for="{{postList}}" wx:for-index="idx" wx:for-item="post" wx:key="_id">
+        <navigator url="detail?id={{post._id}}" hover-class="navigator-hover">
+          <view class="item">
+            <image src="{{baseUrl}}{{post.pic}}" mode="aspectFill" class="post-img" />
+            <view class="author">
+              <text>{{post.author}} 发布</text>
+            </view>
+            <view class="create-date">
+              <text>{{post.displayTime}} {{post.createTime}}</text>
+            </view>
+            <view class="content"><text>{{post.content}}</text></view>
+          </view>
+        </navigator>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="add-post" bindtap="toAddPost">
+    <text>+</text>
+  </view>
+</view>
