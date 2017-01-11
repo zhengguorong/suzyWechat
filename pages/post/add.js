@@ -13,9 +13,10 @@ Page({
         let context = e.detail.value.context
         let title = e.detail.value.title
         if (!context) {
-            wx.showToast({
-                title: '内容不能为空',
-                duration: 2000
+            wx.showModal({
+                title: '提示',
+                content: '文章内容不能为空',
+                showCancel: false
             })
             return
         }
