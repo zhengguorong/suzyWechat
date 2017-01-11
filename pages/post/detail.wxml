@@ -1,6 +1,5 @@
 <view class="detail">
-<!--滚动区域-->
-    <scroll-view scroll-y="true">
+    <view>
         <!--文章详情-->
             <view class="post">
                 <image 
@@ -23,5 +22,5 @@
                     <view class="content"><text>{{reply.content}}</text></view>
                 </view>
             </view>
-    </scroll-view>
+    </view>
 </view>

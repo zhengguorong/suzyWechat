@@ -1,0 +1,6 @@
+<view class="comment">
+  <form bindsubmit="saveComment">
+    <textarea placeholder="请输入评论内容 " name="context"/>
+    <button formType="submit" class="save">提交</button>
+  </form>
+</view>

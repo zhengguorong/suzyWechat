@@ -3,14 +3,15 @@
       "pages/post/index",
       "pages/post/add",
       "pages/post/fav",
-      "pages/post/detail"
+      "pages/post/detail",
+      "pages/post/comment"
   ],
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "suzy.live",
     "navigationBarBackgroundColor": "#fbf9fe",
     "backgroundColor": "#fbf9fe",
-    "enablePullDownRefresh": false
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "color": "#dddddd",

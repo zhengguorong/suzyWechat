@@ -1,6 +1,6 @@
 <view class="fav">
 <!--滚动区域-->
-    <scroll-view scroll-y="true">
+    <view>
         <!--文章列表-->
         <view class="post-list" wx:for="{{postList}}" wx:for-index="idx" wx:for-item="post">
         <navigator url="detail?id={{post._id}}" hover-class="navigator-hover">
@@ -16,5 +16,5 @@
             </navigator>
         </view>
        
-    </scroll-view>
+    </view>
 </view>

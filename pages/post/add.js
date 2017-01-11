@@ -1,5 +1,7 @@
-var postServer = require('../../server/post.js')
-var http = require('../../utils/http.js')
+const postServer = require('../../server/post.js')
+const http = require('../../utils/http.js')
+const broadcast = require("../../libs/broadcast")
+
 Page({
     data: {
         imageList: []
@@ -35,6 +37,7 @@ Page({
             let jData = JSON.parse(data)
             let post = { title: title, content: context, author: 'rong', pic: jData.file[0].path }
             postServer.addPost(post).then((data) => {
+                broadcast.fire("getPostList")
                 wx.navigateBack();
                 wx.hideToast()
             })

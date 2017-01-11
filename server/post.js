@@ -1,9 +1,13 @@
 var http = require("../utils/http.js")
 var Promise = require('../libs/es6-promise.js').Promise
 
-function addPost(post) {
+/**
+ * 添加文章
+ * post 文章对象
+ */
+function addPost(title, content, author, pic) {
     return new Promise((resolve, reject) => {
-        http.post('/api/article/wechat', post).then(data => {
+        http.post('/api/article/wechat', { title: title, content: content, author: author, pic: pic }).then(data => {
             resolve(data)
         })
     })
@@ -33,8 +37,20 @@ function getPostById(id) {
     })
 }
 
+/**
+ * 添加评论
+ */
+function addComment({pId, author, content}) {
+    return new Promise((resolve, reject) => {
+        http.post('/api/reply', { pId: pId, author: author, content: content }).then(data => {
+            resolve(data)
+        })
+    })
+}
+
 module.exports = {
     getPosts: getPosts,
     getPostById: getPostById,
-    addPost: addPost
+    addPost: addPost,
+    addComment: addComment
 }

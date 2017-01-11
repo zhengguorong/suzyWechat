@@ -1,0 +1,13 @@
+.comment{
+    padding:20rpx;
+}
+textarea{
+    margin-bottom: 20rpx;
+    font-size: 28rpx;
+    color:#000;
+    width:100%;
+}
+.save {
+    color: #fff;
+    background-color: #09bb07;
+}
