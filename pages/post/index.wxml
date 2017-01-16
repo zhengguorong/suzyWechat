@@ -1,8 +1,6 @@
 <view class="index">
-
   <!--滚动区域-->
   <view>
-
     <!--文章列表-->
     <view wx:for="{{postList}}" wx:for-index="idx" wx:for-item="post" wx:key="_id">
       <navigator url="detail?id={{post._id}}" hover-class="navigator-hover">
@@ -32,4 +30,5 @@
     <text>+</text>
   </view>
   </navigator>
+  <view wx:if="{{showLoadMore}}" class="load-more"><text>数据加载中...</text></view>
 </view>

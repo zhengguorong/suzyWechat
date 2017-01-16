@@ -13,12 +13,11 @@ Page({
                 showCancel: false
             })
         } else {
-            let comment = { pId: this.data.id, author: 'rong', content: context }
+            let comment = { pId: this.data.id, author: getApp().author, content: context }
             postServer.addComment(comment).then(data => {
                 wx.navigateBack();
             })
         }
-
     },
     onLoad: function (params) {
         this.setData({ id: params.id })

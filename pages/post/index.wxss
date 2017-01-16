@@ -58,3 +58,8 @@
     padding:20rpx;
     line-height: 40rpx;
 }
+.load-more{
+    text-align: center;
+    font-size: 30rpx;
+    height: 60rpx;
+}

@@ -36,7 +36,7 @@ Page({
         })
         http.uploadFile(this.data.imageList[0]).then(data => {
             let jData = JSON.parse(data)
-            let post = { title: title, content: context, author: 'rong', pic: jData.file[0].path }
+            let post = { title: title, content: context, author: getApp().author, pic: jData.file[0].path }
             postServer.addPost(post).then((data) => {
                 broadcast.fire("getPostList")
                 wx.navigateBack();

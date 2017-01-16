@@ -1,12 +1,14 @@
 const postServer = require('../../server/post.js')
 const broadcast = require("../../libs/broadcast")
+const {baseUrl} = getApp()
 
 Page({
     data: {
         postList: [],
-        baseUrl: getApp().baseUrl,
+        baseUrl: baseUrl,
         curPage: 1,
-        hasNext: true
+        hasNext: true,
+        showLoadMore: false
     },
     onPullDownRefresh: function () {
         this.getFirstPage()
@@ -20,6 +22,11 @@ Page({
         this.getNextPage()
     },
     onLoad: function () {
+        wx.showToast({
+            title: '加载中..',
+            icon: 'loading',
+            duration: 10000
+        })
         this.getFirstPage()
         broadcast.on("getPostList", () => {
             this.getFirstPage()
@@ -32,12 +39,15 @@ Page({
                 data[key].createTime = this.formateCreateTime(data[key].createTime)
             }
             this.setData({ postList: data, curPage: page })
+            wx.hideToast()
             wx.stopPullDownRefresh()
         })
     },
     getNextPage: function () {
         if (!this.data.hasNext) return
+        this.setData({ showLoadMore: true })
         postServer.getPosts(++this.data.curPage, 5).then(data => {
+            this.setData({ showLoadMore: false })
             if (data.length < 5) {
                 this.data.hasNext = false
             }
